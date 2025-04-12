@@ -1,0 +1,47 @@
+<!-- sdp week 2, practice day 2 -->
+<!-- api: https://www.themealdb.com/api.php -->
+<!--  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>week 2, practice 2</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<nav class="navbar">
+        <div class="navbar-brand">THEMEALDB api</div>
+        <ul class="navbar-links">            
+        </ul>
+        <button class="hamburger">☰</button>
+    </nav>
+	<div id="selectedSearchCard">
+		<!-- dynamic -->
+	</div>
+	<hr>
+	<div class="searchSection">
+		<input id="searchBox1" type="text" placeholder="search by letter">
+		<button id="search1" onclick="search1()">search</button>
+		<br>		
+		<input id="searchBox2" type="text" placeholder="search by word">
+		<button id="search2" onclick="search2()">search</button>
+		<!-- <p>No meals found by this search!</p> -->
+	</div>
+	<hr>
+	<div id="searchResults">
+		<!-- dynamic -->
+		<!-- <div class="searchItemCard">
+			"strMealThumb": "https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg"
+			<img src="" alt="meal-pic">
+			<p>idMeal: "52768"</p>
+			<p>strMeal: "Apple Frangipan Tart"</p>
+			<p>strCategory: "Dessert"</p>
+			<p>strArea: "British"</p>
+			<p>strTags: "Tart,Baking,Fruity",</p>
+			<p>strInstructions: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, nam."</p>
+		</div> -->		
+	</div>
+	<script src="app.js"></script>
+</body>
+</html>

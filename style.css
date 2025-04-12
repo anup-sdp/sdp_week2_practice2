@@ -1,6 +1,7 @@
 body{
 	width: 90%;
 	margin: 8px auto;
+	background-color: whitesmoke;
 }
 .navbar {
 	display: flex;

@@ -50,7 +50,7 @@ function showMealsDom(){
 		<p>Meal Category: "${e["strCategory"]}"</p>
 		<p>Meal origin: "${e["strArea"]}"</p>
 		<p>Meal Tags: "${e["strTags"]?.slice(0,30)}"</p>
-		<p>Instructions: "${e["strInstructions"]?.slice(0,30)}"</p>
+		<p>Meal Instructions: "${e["strInstructions"]?.slice(0,30)}"</p>
 		`;
 		div.addEventListener("click", ()=>{
 			showSelectedCard(e["idMeal"]);
@@ -65,9 +65,9 @@ function showSelectedCard(idMeal){
 	if(mealItem){
 		selectedSearchCard.innerHTML = `
 			<img src="${mealItem["strMealThumb"]}" alt="meal-pic">
-			<p>Meal id: "${mealItem["idMeal"]}"</p>
-			<p>Meal name: "${mealItem["strMeal"]}"</p>
-			<p>Meal Category: "${mealItem["strCategory"]}"</p>
+			<p>id: "${mealItem["idMeal"]}"</p>
+			<p>name: "${mealItem["strMeal"]}"</p>
+			<p>Category: "${mealItem["strCategory"]}"</p>
 			<p>origin: "${mealItem["strArea"]}"</p>
 			<p>Tags: "${mealItem["strTags"]}"</p>
 			<p>Instructions: "${mealItem["strInstructions"]}"</p>

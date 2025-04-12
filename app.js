@@ -45,12 +45,12 @@ function showMealsDom(){
 		div.classList.add("searchItemCard");
 		div.innerHTML = `
 		<img src="${e["strMealThumb"]}" alt="meal-pic">
-		<p>Meal id: "${e["idMeal"]}"</p>
-		<p>Meal name: "${e["strMeal"]}"</p>
-		<p>Meal Category: "${e["strCategory"]}"</p>
-		<p>Meal origin: "${e["strArea"]}"</p>
-		<p>Meal Tags: "${e["strTags"]?.slice(0,30)}"</p>
-		<p>Meal Instructions: "${e["strInstructions"]?.slice(0,30)}"</p>
+		<p>id: "${e["idMeal"]}"</p>
+		<p>name: "${e["strMeal"]}"</p>
+		<p>Category: "${e["strCategory"]}"</p>
+		<p>origin: "${e["strArea"]}"</p>
+		<p>Tags: "${e["strTags"]?.slice(0,30)}"</p>
+		<p>Instructions: "${e["strInstructions"]?.slice(0,15)+"..."}"</p>
 		`;
 		div.addEventListener("click", ()=>{
 			showSelectedCard(e["idMeal"]);
@@ -65,12 +65,12 @@ function showSelectedCard(idMeal){
 	if(mealItem){
 		selectedSearchCard.innerHTML = `
 			<img src="${mealItem["strMealThumb"]}" alt="meal-pic">
-			<p>id: "${mealItem["idMeal"]}"</p>
-			<p>name: "${mealItem["strMeal"]}"</p>
-			<p>Category: "${mealItem["strCategory"]}"</p>
-			<p>origin: "${mealItem["strArea"]}"</p>
-			<p>Tags: "${mealItem["strTags"]}"</p>
-			<p>Instructions: "${mealItem["strInstructions"]}"</p>
+			<p>Meal id: "${mealItem["idMeal"]}"</p>
+			<p>Meal Name: "${mealItem["strMeal"]}"</p>
+			<p>Meal Category: "${mealItem["strCategory"]}"</p>
+			<p>Meal Origin: "${mealItem["strArea"]}"</p>
+			<p>Meal Tags: "${mealItem["strTags"]}"</p>
+			<p>Meal Instructions: "${mealItem["strInstructions"]}"</p>
 		`;
 		selectedSearchCard.scrollIntoView();
 	}

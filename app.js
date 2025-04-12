@@ -55,7 +55,7 @@ function showMealsDom(){
 		div.addEventListener("click", ()=>{
 			showSelectedCard(e["idMeal"]);
 		});
-		searchResults.appendChild(div);			
+		searchResults.appendChild(div);
 	});
 }
 

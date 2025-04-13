@@ -1,10 +1,19 @@
 // alert("hello");
 let mealsArray = [];
 
-function search1(){
-	const inputValue = document.getElementById("searchBox1").value;
-	// search meals by first letter // eg. www.themealdb.com/api/json/v1/1/search.php?f=a	
-	fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${inputValue}`).then(res=> res.json()).then(data=>{
+function search(){
+	const inputValue = document.getElementById("searchBox").value.trim();
+	if(inputValue==""){
+		return;
+	}
+	let mealUrl = "";
+	if(inputValue.length==1){
+		mealUrl = `https://www.themealdb.com/api/json/v1/1/search.php?f=${inputValue}`; // search meals by first letter 
+	}
+	else{
+		mealUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`; // Search meal by name 
+	}
+	fetch(mealUrl).then(res=> res.json()).then(data=>{
 		//console.log(data);			
 		mealsArray = data["meals"];
 		console.log(mealsArray);		
@@ -19,23 +28,6 @@ function search1(){
 	});
 }
 
-function search2(){
-	const inputValue = document.getElementById("searchBox2").value;
-	// Search meal by name // eg. www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata	
-	fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${inputValue}`).then(res=> res.json()).then(data=>{
-		//console.log(data);		
-		if(data["meals"]==null){
-			console.log("No meals found!");
-			document.getElementById("searchResults").innerHTML="<p>No meals found by this search!</p>";
-			return;
-		}
-		mealsArray = data["meals"];
-		console.log(mealsArray);
-		showMealsDom();
-	}).catch((err)=>{
-		console.log(err);
-	});
-}
 
 function showMealsDom(){
 	const searchResults  = document.getElementById("searchResults");
@@ -60,10 +52,11 @@ function showMealsDom(){
 }
 
 function showSelectedCard(idMeal){
-	let selectedSearchCard = document.getElementById("selectedSearchCard");
+	let selectedCard = document.getElementById("selectedCard");
 	let mealItem = mealsArray.find(ele => ele.idMeal===idMeal);
 	if(mealItem){
-		selectedSearchCard.innerHTML = `
+		selectedCard.style.display = 'block';
+		selectedCard.innerHTML = `
 			<img src="${mealItem["strMealThumb"]}" alt="meal-pic">
 			<p>Meal id: "${mealItem["idMeal"]}"</p>
 			<p>Meal Name: "${mealItem["strMeal"]}"</p>
@@ -72,6 +65,9 @@ function showSelectedCard(idMeal){
 			<p>Meal Tags: "${mealItem["strTags"]}"</p>
 			<p>Meal Instructions: "${mealItem["strInstructions"]}"</p>
 		`;
-		selectedSearchCard.scrollIntoView();
+		selectedCard.scrollIntoView();
+	}
+	else{
+		selectedCard.style.display = 'none';
 	}
 }

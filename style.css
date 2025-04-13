@@ -42,7 +42,8 @@ input, button {
 	gap: 16px;
 }
 
-#selectedSearchCard{
+#selectedCard{
+	display: none;
 	width: 400px;
 	border: 1px solid gray;
 	border-radius: 10px;
@@ -50,7 +51,7 @@ input, button {
 	margin: 12px auto;
 }
 
-#selectedSearchCard img{
+#selectedCard img{
 	width: 350px;
 	aspect-ratio: 1/1;
 	display: block;
